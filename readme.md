@@ -1,4 +1,5 @@
 # Bash Scripting
+
 Here are the common code snippets to create bash scripts 
 
 ## How To
@@ -25,11 +26,14 @@ View Content
 
 - [Bash Scripting Tutorial - 4. Arithmetic](https://ryanstutorials.net/bash-scripting-tutorial/bash-arithmetic.php)
 - [Bash Math Operations (Bash Arithmetic) Explained](https://phoenixnap.com/kb/bash-math)
+
 ---
 
 There's a number of ways you can do basic or advanced calculations with linux commands.
 Within these small examples, I will show how to use the`let` and `expr` commands
 
+
+#### let
 
 ```linux
 #!/bin/bash
@@ -46,7 +50,31 @@ let "dogYears = $age * 6"
 
 echo "You'll be $dogYears in dog years"
 
+# you can also do math without putting the equation in quotes
+let a=$dogYears+12
+
+# you can also increment the previously made variable, like so
+let a++
+
+
 ```
+
+#### expr
+
+```linux
+#!/bin/bash
+
+expr 5 + 9
+
+# This won't work
+expr 10 * 236 
+
+# But this does
+expr 10 \* 236
+
+```
+
+#### bc
 
 ```linux
 #!/bin/bash
