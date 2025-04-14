@@ -7,6 +7,8 @@ View Content
 
 :link: **Reference**
 
+:pencil2: **Things to note**
+
 - [example](https://example.com)
 ---
 

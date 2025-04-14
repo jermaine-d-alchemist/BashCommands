@@ -30,8 +30,7 @@ View Content
 ---
 
 There's a number of ways you can do basic or advanced calculations with linux commands.
-Within these small examples, I will show how to use the`let` and `expr` commands
-
+Within these small examples, I will show how to use the`let` and `expr` commands. But I included `bc` because I found out that the previous commands sort of suck
 
 #### let
 
@@ -61,6 +60,14 @@ let a++
 
 #### expr
 
+:pencil2: **Things to note**
+
+- expr prints the answer as opposed to returning it, so you should only use it if you want to print out the final arithmatic
+- expr does not take  or calculate floating point numbers so if you attempt to 
+do any calculation with it, an error will be thrown
+- you can't multiply with the `*` alone, you have to include a slash `\*`
+- another annoying thing about `expr` is that you need to have the equation either spaced ` $x + $y` or together `$x+$y`, but if you have it like this `$x+ $y`. It will throw an error
+
 ```linux
 #!/bin/bash
 
@@ -71,6 +78,15 @@ expr 10 * 236
 
 # But this does
 expr 10 \* 236
+
+x=5
+y=10
+
+# this will work
+expr $x + $y
+
+# this will not work
+exprt $x+ $y
 
 ```
 
@@ -83,7 +99,7 @@ echo "Sorry to be intrusive, but how much do you weigh?"
 
 read weight
 
-# let and expr don't work well with division so bc(basic calculator)
+# let and expr doesn't work well with division so bc(basic calculator)
 # is the best command to use
 kg=$(bc <<< "$weight/2.2046" )
 
