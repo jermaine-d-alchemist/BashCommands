@@ -8,12 +8,76 @@ Here are the common code snippets to create bash scripts
 - [create a variable][create-var]
 - [create a comment][create-comm]
 - [read input][read-inpt]
+- [read from a file][read-file]
 
+## Errors 
+
+- [no such file or directory][no-file]
+
+[no-file]:#no-such-file-or-directory
+[read-file]:#read-from-a-file
 [math-exp]:#do-basic-math-expression
 [read-inpt]:#read-input
 [create-var]:#create-a-variable
 [create-comm]:#create-a-comment
 [home]:#bash-scripting
+
+### no such file or directory
+
+<details>
+<summary>
+View Content
+</summary>
+
+:link: **Reference**
+
+- [Script cannot find file](https://stackoverflow.com/questions/40923758/script-cannot-find-file)
+
+:pencil2: **Things to note**
+
+---
+
+This is an example
+
+```linux
+
+```
+
+</details>
+
+[go back :house:][home]
+
+### read from a file
+
+<details>
+<summary>
+View Content
+</summary>
+
+:link: **Reference**
+
+:pencil2: **Things to note**
+
+- [example](https://example.com)
+---
+
+If you want to read input from a file, you can use the while loop to get the line
+of text that might be from a text file
+
+```linux
+#!/bin/bash
+cd "$(dirname "$0")"
+
+while read line
+do
+  echo $line
+done < ../text/t001.txt
+
+```
+
+</details>
+
+[go back :house:][home]
 
 ### do basic math expression
 
