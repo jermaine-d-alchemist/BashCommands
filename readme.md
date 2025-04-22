@@ -9,11 +9,13 @@ Here are the common code snippets to create bash scripts
 - [create a comment][create-comm]
 - [read input][read-inpt]
 - [read from a file][read-file]
+- [read from arguments][read-args]
 
-## Errors 
+## Errors
 
 - [no such file or directory][no-file]
 
+[read-args]:#read-from-arguments
 [no-file]:#no-such-file-or-directory
 [read-file]:#read-from-a-file
 [math-exp]:#do-basic-math-expression
@@ -21,6 +23,33 @@ Here are the common code snippets to create bash scripts
 [create-var]:#create-a-variable
 [create-comm]:#create-a-comment
 [home]:#bash-scripting
+
+### read from arguments
+
+<details>
+<summary>
+View Content
+</summary>
+
+:link: **Reference**
+
+:pencil2: **Things to note**
+
+- [example](https://example.com)
+---
+
+Numbered variables in bash script can indicate the different input values that the script read from. So if you type in 3 separate words, they can be interpreted as 3 different arguments that bash can use
+
+```linux
+#!/bin/bash
+
+echo "How are you feeling today"
+```
+
+</details>
+
+[go back :house:][home]
+
 
 ### no such file or directory
 
@@ -33,14 +62,18 @@ View Content
 
 - [Script cannot find file](https://stackoverflow.com/questions/40923758/script-cannot-find-file)
 
-:pencil2: **Things to note**
-
 ---
 
-This is an example
+If you attempt to read from a file, you will probably get the error `no such file or directory`. I'm assuming that it might be looking within the root directory. In any case, this is how you can call a script and it will look for content based on the current directory you are in 
 
 ```linux
+cd "$(dirname "$0")"
+```
 
+
+```linux
+dir="$(cd $(dirname "$0"); pwd)"
+chmod 770 "$dir/somefile"
 ```
 
 </details>
@@ -56,22 +89,42 @@ View Content
 
 :link: **Reference**
 
+- [Shell script read missing last line](https://stackoverflow.com/questions/12916352/shell-script-read-missing-last-line)
+
 :pencil2: **Things to note**
 
-- [example](https://example.com)
+- The read line will not read the last line of a file, unless do the code in a different way
+- Apparently, the reason why the while loop doesn't read the last line of code, is because it's expected that you are supposed to leave the last line blank. I don't know, that sounds stupid to me
+
 ---
 
 If you want to read input from a file, you can use the while loop to get the line
 of text that might be from a text file
 
+#### the basic way to do it
+
 ```linux
 #!/bin/bash
+# This is needed to cd into your current directory
 cd "$(dirname "$0")"
 
 while read line
 do
   echo $line
 done < ../text/t001.txt
+# this will print everything except the last line
+
+```
+
+#### the best way to do it
+
+```linux
+#!/bin/bash
+# This is needed to cd into your current directory
+cd "$(dirname "$0")"
+
+# This will read the last line of the files
+while read line || [ -n "$line" ]; do echo $line; done < ../text/t001.txt
 
 ```
 
