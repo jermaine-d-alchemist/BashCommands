@@ -10,11 +10,13 @@ Here are the common code snippets to create bash scripts
 - [read input][read-inpt]
 - [read from a file][read-file]
 - [read from arguments][read-args]
+- [write to a file][write-file]
 
 ## Errors
 
 - [no such file or directory][no-file]
 
+[write-file]:#write-to-a-file
 [read-args]:#read-from-arguments
 [no-file]:#no-such-file-or-directory
 [read-file]:#read-from-a-file
@@ -24,6 +26,35 @@ Here are the common code snippets to create bash scripts
 [create-comm]:#create-a-comment
 [home]:#bash-scripting
 
+### write to a file
+
+<details>
+<summary>
+View Content
+</summary>
+
+---
+
+This is an example
+
+```linux
+#!/bin/bash
+
+cd "$(dirname "$0")"
+
+# If the file does not exist, it will create the file
+# and then insert the text
+echo "I'm inserting text into this file" > ../text/t002.txt
+
+# the >> appends text to the file
+echo "I'm appending text into this file" >> ../text/t002.txt
+
+```
+
+</details>
+
+[go back :house:][home]
+
 ### read from arguments
 
 <details>
@@ -31,25 +62,35 @@ Here are the common code snippets to create bash scripts
 View Content
 </summary>
 
-:link: **Reference**
-
-:pencil2: **Things to note**
-
-- [example](https://example.com)
 ---
 
-Numbered variables in bash script can indicate the different input values that the script read from. So if you type in 3 separate words, they can be interpreted as 3 different arguments that bash can use
+Numbered variables in bash script can indicate the different input values that the script read from. So if you type in 3 separate words, they can be interpreted as 3 different arguments that bash can use as variables. The way you access the arguments is by the sequence of the variable. So if you wanted to get value of the second argument you can call it out like this `echo $2`. And so on.
 
 ```linux
+# outside of bash
+
+bash scripts/bash007.sh  dog cat fish horse
+
+# inside bash
 #!/bin/bash
 
-echo "How are you feeling today"
+echo "Hello, how are you feeling today?"
+
+# will print out dog
+echo "$1, is your first argument"
+
+# will print out cat
+echo "$2, is your second argument"
+
+# will print out fish, but it will not print out horse
+# or any additional arguments
+echo "$3, is your remaining arguments"
+
 ```
 
 </details>
 
 [go back :house:][home]
-
 
 ### no such file or directory
 
