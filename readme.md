@@ -11,11 +11,13 @@ Here are the common code snippets to create bash scripts
 - [read from a file][read-file]
 - [read from arguments][read-args]
 - [write to a file][write-file]
+- [use conditional statements][con-stat]
 
 ## Errors
 
 - [no such file or directory][no-file]
 
+[con-stat]:#use-conditional-statements
 [write-file]:#write-to-a-file
 [read-args]:#read-from-arguments
 [no-file]:#no-such-file-or-directory
@@ -25,6 +27,26 @@ Here are the common code snippets to create bash scripts
 [create-var]:#create-a-variable
 [create-comm]:#create-a-comment
 [home]:#bash-scripting
+
+### use conditional statements
+
+<details>
+<summary>
+View Content
+</summary>
+
+---
+
+This is an example
+
+```linux
+#!/bin/bash
+
+```
+
+</details>
+
+[go back :house:][home]
 
 ### write to a file
 
