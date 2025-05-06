@@ -37,7 +37,31 @@ View Content
 
 ---
 
-This is an example
+ This example works only when you place curly brackes around the comparison. I was not able to produce a `-lt` because I would get a lot of errors
+```linux
+#!/bin/bash
+
+echo "How much do you weigh in pounds?"
+
+read weight
+
+# converts the weight of pounds to kilos
+kg=$(bc <<< "$weight/2.2046" )
+
+# the less than operator only works if the comparison is wrapped in two  curly brackets
+if (("$weight" < 150));then
+ echo "You're pretty skinny for $kg kilos"
+
+ elif (("$weight"  < 180)); then
+ echo " That's $kg kilos, seem to be normal weight ... if you're a man"
+ else
+ echo "You are $kg kilos, you are either slightly chubby or a complete fat ass"
+
+fi
+
+```
+
+This example does not work because the bash script is giving errors stating that the `-lt` command is not found. I don't know how far I'm going to look into how to resolve this issue
 
 ```linux
 #!/bin/bash
@@ -60,8 +84,6 @@ if [$weight -lt 150 ];then
 # I'm assuming you have to end every if statement with a fi
 # more testing is needed
 fi
-
-
 
 ```
 
