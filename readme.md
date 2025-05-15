@@ -12,11 +12,13 @@ Here are the common code snippets to create bash scripts
 - [read from arguments][read-args]
 - [write to a file][write-file]
 - [use conditional statements][con-stat]
+- [use loops][looping]
 
 ## Errors
 
 - [no such file or directory][no-file]
 
+[looping]:#use-loops
 [con-stat]:#use-conditional-statements
 [write-file]:#write-to-a-file
 [read-args]:#read-from-arguments
@@ -28,12 +30,41 @@ Here are the common code snippets to create bash scripts
 [create-comm]:#create-a-comment
 [home]:#bash-scripting
 
+
+### use loops
+
+<details>
+<summary>
+View Content
+</summary>
+
+:link: **Reference**
+
+:pencil2: **Things to note**
+
+- [example](https://example.com)
+---
+
+This is an example
+
+```linux
+
+```
+
+</details>
+
+[go back :house:][home]
+
 ### use conditional statements
 
 <details>
 <summary>
 View Content
 </summary>
+
+:link: **Reference**
+
+- [Bash Test Operators](https://kapeli.com/cheat_sheets/Bash_Test_Operators.docset/Contents/Resources/Documents/index)
 
 ---
 
@@ -54,6 +85,33 @@ if (("$weight" < 150));then
 
  elif (("$weight"  < 180)); then
  echo " That's $kg kilos, seem to be normal weight ... if you're a man"
+ else
+ echo "You are $kg kilos, you are either slightly chubby or a complete fat ass"
+
+fi
+
+```
+
+This example allows comparison operator flags like `-lt, -ge, -a, or -o` to work. Apparently using the `test` command makes it work properly. There might be other keywords/commands that can make it work, but here is an example . And here is a [link](https://kapeli.com/cheat_sheets/Bash_Test_Operators.docset/Contents/Resources/Documents/index) to the different comparison operators
+
+```linux
+#!/bin/bash
+
+echo "How much do you weigh in pounds?"
+
+read weight
+
+# converts the weight of pounds to kilos
+kg=$(bc <<< "$weight/2.2046" )
+
+# apparently using the test keyword will allow the -lt to be recognized
+if test "$weight" -lt 150 ;then
+ echo "You're pretty skinny for $kg kilos"
+
+ elif test "$weight"  -lt 180 ; then
+ echo " That's $kg kilos, seem to be normal weight ... if you're a man"
+ elif test $weight -ge 200 -o $weight -le 250; then
+  echo "$kg kilos!? You are one beefy boy"
  else
  echo "You are $kg kilos, you are either slightly chubby or a complete fat ass"
 
