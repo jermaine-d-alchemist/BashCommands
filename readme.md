@@ -30,7 +30,6 @@ Here are the common code snippets to create bash scripts
 [create-comm]:#create-a-comment
 [home]:#bash-scripting
 
-
 ### use loops
 
 <details>
@@ -45,9 +44,46 @@ View Content
 - [example](https://example.com)
 ---
 
-This is an example
+This is an example of the while loop
 
 ```linux
+#!/bin/bash
+
+i=1
+# surprisingly the comparison operator flags
+# work in these brackets while it loops
+while [[ $i -le 10 ]] ; do
+   echo "$i"
+  (( i += 1 ))
+done
+
+```
+
+this is an example of the for loop
+
+```linux
+#!/bin/bash
+
+max=10
+
+# the seq command allows you to add a variable as either the beginning or end of the for loop
+# you can use or you could have a predefined range in the for loop
+# like this : for i in {1..5}
+for i in $(seq 1 $max)
+do
+   if test $i -gt 1; then
+
+     echo "$i monkeys"
+
+    else 
+
+      echo "$i monkey"
+
+   fi
+
+done
+
+echo "Are jumping on the bed"
 
 ```
 
