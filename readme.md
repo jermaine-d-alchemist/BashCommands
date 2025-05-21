@@ -1,6 +1,6 @@
 # Bash Scripting
 
-Here are the common code snippets to create bash scripts 
+Here are the common code snippets to create bash scripts
 
 ## How To
 
@@ -41,7 +41,8 @@ View Content
 
 :pencil2: **Things to note**
 
-- [example](https://example.com)
+- [How do I iterate over a range of numbers defined by variables in Bash?](https://stackoverflow.com/questions/169511/how-do-i-iterate-over-a-range-of-numbers-defined-by-variables-in-bash)
+
 ---
 
 This is an example of the while loop
@@ -59,7 +60,7 @@ done
 
 ```
 
-this is an example of the for loop
+this is an example of the for loop. In case you wanted to use a defined variable as a part of the looping process. You should use the `seq` command
 
 ```linux
 #!/bin/bash
@@ -105,6 +106,7 @@ View Content
 ---
 
  This example works only when you place curly brackes around the comparison. I was not able to produce a `-lt` because I would get a lot of errors
+
 ```linux
 #!/bin/bash
 
@@ -264,12 +266,11 @@ View Content
 
 ---
 
-If you attempt to read from a file, you will probably get the error `no such file or directory`. I'm assuming that it might be looking within the root directory. In any case, this is how you can call a script and it will look for content based on the current directory you are in 
+If you attempt to read from a file, you will probably get the error `no such file or directory`. I'm assuming that it might be looking within the root directory. In any case, this is how you can call a script and it will look for content based on the current directory you are in
 
 ```linux
 cd "$(dirname "$0")"
 ```
-
 
 ```linux
 dir="$(cd $(dirname "$0"); pwd)"
@@ -380,10 +381,10 @@ let a++
 :pencil2: **Things to note**
 
 - expr prints the answer as opposed to returning it, so you should only use it if you want to print out the final arithmatic
-- expr does not take  or calculate floating point numbers so if you attempt to 
+- expr does not take  or calculate floating point numbers so if you attempt to
 do any calculation with it, an error will be thrown
 - you can't multiply with the `*` alone, you have to include a slash `\*`
-- another annoying thing about `expr` is that you need to have the equation either spaced ` $x + $y` or together `$x+$y`, but if you have it like this `$x+ $y`. It will throw an error
+- another annoying thing about `expr` is that you need to have the equation either spaced `$x + $y` or together `$x+$y`, but if you have it like this `$x+ $y`. It will throw an error
 
 ```linux
 #!/bin/bash
@@ -482,7 +483,6 @@ adding the `#` before anything comments the line out
 
 [go back :house:][home]
 
-
 ### create a variable
 
 <details>
@@ -492,7 +492,7 @@ View Content
 
 ---
 
-There are no data types in bash so you don't have 
+There are no data types in bash so you don't have
 declare a type before assigning it a value
 
 ```linux
