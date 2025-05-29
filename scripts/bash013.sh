@@ -22,6 +22,6 @@ case $job in
     ;;
 
     *)
-    echo "Sir, when a medieval fantasy"
+    echo "Sir, we're in a medieval fantasy"
   ;;
 esac

@@ -13,11 +13,13 @@ Here are the common code snippets to create bash scripts
 - [write to a file][write-file]
 - [use conditional statements][con-stat]
 - [use loops][looping]
+- [lowercase a string][low-case]
 
 ## Errors
 
 - [no such file or directory][no-file]
 
+[low-case]:#lowercase-a-string
 [looping]:#use-loops
 [con-stat]:#use-conditional-statements
 [write-file]:#write-to-a-file
@@ -29,6 +31,50 @@ Here are the common code snippets to create bash scripts
 [create-var]:#create-a-variable
 [create-comm]:#create-a-comment
 [home]:#bash-scripting
+
+### lowercase a string
+
+<details>
+<summary>
+View Content
+</summary>
+
+:link: **Reference**
+
+:pencil2: **Things to note**
+
+- [How to convert a string to lower case in Bash](https://stackoverflow.com/questions/2264428/how-to-convert-a-string-to-lower-case-in-bash)
+---
+
+Here are a couple of options to lowercase
+
+```linux
+#!/bin/bash
+
+
+echo "What is your first name?"
+
+read name
+
+# option 1
+echo "$name" | tr '[:upper:]' '[:lower:]'
+
+echo "What is your last name?"
+
+read last
+# option 2
+echo "$last" | awk '{print tolower($0)}'
+
+echo "What do you want get off your chest"
+
+read chest
+# option 3
+echo $chest | tr '[A-Z]' '[a-z]'
+```
+
+</details>
+
+[go back :house:][home]
 
 ### use loops
 
@@ -105,6 +151,38 @@ View Content
 
 ---
 
+This example is using the `case` statement which is similar to the `switch` statement
+
+```linux
+#!/bin/bash
+
+
+echo "What job do you have?"
+
+read job
+
+# this is how you lowercase string values
+job=$(echo "$job" | tr '[:upper:]' '[:lower:]')
+
+case $job in 
+    "knight")
+      echo "Then you should you have a sword"
+    ;;
+
+    "mage")
+    echo "Then you should have a staff"
+    ;;
+
+    "archer")
+    echo "Then you should have a bow"
+    ;;
+
+    *)
+    echo "Sir, we're in a medieval fantasy"
+  ;;
+esac
+```
+
  This example works only when you place curly brackes around the comparison. I was not able to produce a `-lt` because I would get a lot of errors
 
 ```linux
@@ -156,6 +234,8 @@ if test "$weight" -lt 150 ;then
 fi
 
 ```
+
+
 
 This example does not work because the bash script is giving errors stating that the `-lt` command is not found. I don't know how far I'm going to look into how to resolve this issue
 
