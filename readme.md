@@ -14,11 +14,13 @@ Here are the common code snippets to create bash scripts
 - [use conditional statements][con-stat]
 - [use loops][looping]
 - [lowercase a string][low-case]
+- [run a cron on a script][cron-script]
 
 ## Errors
 
 - [no such file or directory][no-file]
 
+[cron-script]:#run-a-cron-on-a-script
 [low-case]:#lowercase-a-string
 [looping]:#use-loops
 [con-stat]:#use-conditional-statements
@@ -31,6 +33,44 @@ Here are the common code snippets to create bash scripts
 [create-var]:#create-a-variable
 [create-comm]:#create-a-comment
 [home]:#bash-scripting
+
+### run a cron on a script
+
+<details>
+<summary>
+View Content
+</summary>
+
+:link: **Reference**
+
+:pencil2: **Things to note**
+
+- [cron jobs in linux](https://www.freecodecamp.org/news/cron-jobs-in-linux/)
+---
+
+This is an example of what each asterisk represents in time. It still is confusing as hell
+
+```linux
+*   *   *   *   *  sh /path/to/script/script.sh
+|   |   |   |   |              |
+|   |   |   |   |      Command or Script to Execute        
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   | Day of the Week(0-6)
+|   |   |   |
+|   |   | Month of the Year(1-12)
+|   |   |
+|   | Day of the Month(1-31)  
+|   |
+| Hour(0-23)  
+|
+Min(0-59)
+```
+
+</details>
+
+[go back :house:][home]
 
 ### lowercase a string
 
