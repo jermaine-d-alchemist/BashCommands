@@ -46,6 +46,8 @@ View Content
 :pencil2: **Things to note**
 
 - [cron jobs in linux](https://www.freecodecamp.org/news/cron-jobs-in-linux/)
+- [crontab practice](https://crontab.guru/)
+
 ---
 
 This is an example of what each asterisk represents in time. It still is confusing as hell
