@@ -70,6 +70,17 @@ This is an example of what each asterisk represents in time. It still is confusi
 Min(0-59)
 ```
 
+|Code| Explanation|
+|-|-|
+|0 0 * * * |  at midnight everyday|
+|*/5 * * * * | every 5 minutes|
+|0 12 * * 1-5| at noon from monday through friday|
+|30 5 1 */3 *| the first day every 4 months at 5:30am|
+|0 13 */7,*/14,*/21 * 6| at 1pm on the 7th, 14th, or 21st of the month if it lands on a saturday|
+|0 9-17 * * 1-5| run every hour between 9am-5pm between monday through friday|
+|*/30 20-23 31 12 */4| every 30 minutes between the hours of 8pm-11pm on the 31st december, if it happens to be on the 4th day of week|
+
+
 </details>
 
 [go back :house:][home]
