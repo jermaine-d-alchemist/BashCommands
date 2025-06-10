@@ -72,13 +72,16 @@ Min(0-59)
 
 |Code| Explanation|
 |-|-|
-|0 0 * * * |  at midnight everyday|
+|0 0 * * * | at midnight everyday|
 |*/5 * * * * | every 5 minutes|
 |0 12 * * 1-5| at noon from monday through friday|
 |30 5 1 */3 *| the first day every 4 months at 5:30am|
 |0 13 */7,*/14,*/21 * 6| at 1pm on the 7th, 14th, or 21st of the month if it lands on a saturday|
 |0 9-17 * * 1-5| run every hour between 9am-5pm between monday through friday|
 |*/30 20-23 31 12 */4| every 30 minutes between the hours of 8pm-11pm on the 31st december, if it happens to be on the 4th day of week|
+|1-5 1-5 1-5 1-5 1-5|at every minute between 1-5, within the hours of 1am - 5am, within the first 5 days of month, within the months of january and may, that will be will be within the weekdays of monday-friday |
+|*/5 * * * */5|every 5th minute that passes on a friday|
+|*/3 */2 1 */2 */3| every 3rd minute passes, after every 2nd hour, on the first day of the month, every 2 months, on a wednesday|
 
 
 </details>
